@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    Halle Callahan
+    
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+    
+    <style>
+            
+body{
+    overflow-x:hidden;
+}
+.scroll-container{
+    display:block;
+}
+
+/*background/foreground*/
+.background-item{
+    width:100%;
+    height:100vh;
+    z-index:0;
+    position:sticky;
+    display:block;
+    top:0;
+    margin-bottom:20%;
+}
+.foreground-item{
+    position:relative;
+    padding-bottom:50%;
+}
+.hidden{
+    display:none !important;
+}
+
+/*positioning*/
+.center, .center-wide{
+    text-align:center;
+}
+.half-width{
+    width:50%;
+}
+.full-width, .fit{
+    width:100%;
+}
+.half-height{
+    height:50%;
+}
+.full-height, .fill{
+    height:100%;
+}
+
+/*title*/
+.title{
+    height:100vh;   
+}
+.title h1{
+    font-size:100px;
+}
+
+/*bottom margin styles*/
+.row{
+    margin-bottom:20%;
+    margin-top:15%
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+}
+
+/*smaller bottom margin for rows in the foreground*/
+.foreground-item > .row{
+    margin-bottom:60%;
+}
+.no-margin{
+    margin-bottom:0 !important;
+}
+.lg-margin{
+    margin-bottom:100% !important;
+}
+.sm-margin{
+    margin-bottom:25% !important;
+}
+
+/*block styles*/
+.rounded{
+    border-radius:10%;
+}
+.background-white{
+    background-color:white;
+    padding:20px;
+}
+.background-transparent{
+    background-color:rgba(255,255,255,0.8);
+    padding:20px;
+}
+
+/*credits section*/
+.credits{
+    text-align:left;
+    margin-bottom:50px;
+}
+.credits > p{
+    margin-bottom:5px;
+}
+
+/*interactions*/
+.no-event{
+    pointer-events:none;
+}
+
+/*temp*/
+#map, #background-map, .full-screen{
+    height:100vh;
+    width:100vw;
+}
+
+/*animation*/
+.fade-in{
+    animation:in 2s; 
+}
+@keyframes in {
+    from {opacity: 0;}
+    to {opacity: 1;} 
+ } 
+
+
+@media screen and (min-width: 1200px) {
+    .center{
+        flex: 0 0 auto;
+        margin-left:25%;
+        width:50% !important;
+    }
+    .center-wide{
+        flex: 0 0 auto;
+        margin-left:15%;
+        width:70% !important;
+    }
+    .left{
+        flex: 0 0 auto;
+        margin-left: 8.33333333%;
+        width: 41.66666667% !important;
+    }
+    .right{
+        flex: 0 0 auto;
+        margin-left:50%;
+        width: 41.66666667% !important;
+    }
+    .right-inline{
+        width: 41.66666667% !important;
+    }
+}
+    @media screen and (min-width: 720px) and (max-width: 1199px) {
+    .center{
+        flex: 0 0 auto;
+        margin-left: 16.66666667%;
+        width: 66.66666667% !important;
+    }
+    .center-wide{
+        flex: 0 0 auto;
+        margin-left:15%;
+        width:70% !important;
+    }
+    .left{
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+    .right{
+        flex: 0 0 auto;
+        margin-left:50%;
+        width: 50% !important;
+    }
+    .right-inline{
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+
+}
+@media screen and (min-width: 540px) and (max-width: 719px) {
+    .center, .center-wide{
+        flex: 0 0 auto;
+        margin-left: 8.33333333%;
+        width: 83.333333333% !important;
+    }
+    .left{
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+    .right{
+        flex: 0 0 auto;
+        margin-left:50%;
+        width: 50% !important;
+    }
+    .right-inline{
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+}
+@media screen and (max-width: 539px) {
+    .center, .center-wide{
+        width: 100% !important;
+    }
+    .left{
+        width: 100% !important;
+    }
+    .right{
+        width: 100% !important;
+    }
+    .right-inline{
+        width: 100% !important;
+    }
+    .row{
+        margin-bottom:50%;
+    }
+    .foreground-item > .row{
+        margin-bottom:100%;
+    }
+}
+.vert-center { 
+    text-align: center; 
+    margin-bottom: 50px;  
+}
+.vert-centerforh3 { 
+    text-align: center; 
+    margin-bottom: 100px;  
+}
+
+        
+        .scroll-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .scroll-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .text-box {
+            background-color: rgba(240, 234, 227, 0.95); 
+            padding: 25px 40px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .text-box h3 {
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 2em;
+        }
+
+        .text-box p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="title-section" style="background-image: url(Where-the-Wild-Things-Aretitle.jpg);background-size:130%">
+    <div class="center title">
+        <h1>Where The Wild Things Are</h1>
+    </div>
+</div>
+
+<div class="row">
+    <h3 class="vert-center">This is a project made for a Graphic Design in Cartography Class (GEOG572) taught by Robert Roth.</h3>
+</div>
+
+<div class="row">
+    <p class="vert-center">The main inspiration for this base map was from a story book, Where The Wild Things Are, by Maurice Sendak. I loved the inspiration so much I ate it up!</p>
+   <img class="fit" src="inspo.png"> 
+</div>
+
+<div class="row">
+    <p class="vert-center">Throughout the map, Max, the protagonist of the book appears as an indicator of small neighborhoods. He is shown in his signature wolf costume stomping around. His crown serves as the marker of cities such as Madison and Chicago.</p>
+    <img class="fit" src="maxpic.png">
+</div>
+
+<div class="row">
+    <p class="vert-center">The patterns and colors were made to not take away from the map and allow data to be comprehensible at all zoom levels while also remaining faithful to the story!</p>
+    <img class="fit" src="Worldzoom.png">
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <h3 class="vert-centerforh3">
+        The story follows a young rebellious kid trying to find his place in the world: As a king, a Wild Thing, and as a human. His journey through various landscapes is what I hope to show you through this map.
+    </p>
+
+</div>
+
+<div class="scroll-section" style="background-image: url(Haverhill,MASSACHUSETTS.png);">
+    <div class="text-box">
+        <h3></h3>
+        <p>This is Haverhill, Massachusetts, the first place that I read Where The Wild Things Are. Haverhill is also my hometown.</p>
+    </div>
+</div>
+
+<div class="scroll-section" style="background-image: url(Madison,WISCONSIN.png);">
+    <div class="text-box">
+        <h3></h3>
+        <p>Madison, Wisconsin</p>
+    </div>
+</div>
+
+<div class="scroll-section" style="background-image: url(Nairobi,KENYA.png);">
+    <div class="text-box">
+        <h3></h3>
+        <p>Nairobi, Kenya</p>
+    </div>
+</div>
+
+
+<div class="scroll-section" style="background-image: url(Ostersund,SWEDEN.png);">
+    <div class="text-box">
+        <h3></h3>
+        <p>Östersund, Sweden</p>
+    </div>
+</div>
+
+<div class="row" ></div>
+   <div class="row">
+     <div class="center-wide">
+        <h3>Take a closer look!</h3>
+           <iframe class="fit" src="https://api.mapbox.com/styles/v1/halle-callahan/cmhf0okmh002w01qi54s5fxra.html?title=view&access_token=pk.eyJ1IjoiaGFsbGUtY2FsbGFoYW4iLCJhIjoiY21oZjBkdDJoMDA2ajJpcHN1cnJ4bG1nciJ9.X5OPaKEPvfGrZ-V1W4j8lQ&zoomwheel=true&fresh=true#0.26/0/0"></iframe>
+     </div>
+</div>
+
+
+<div class="row no-margin">
+     <div class="center">
+
+
+          <div class="credits">
+               <p><b>Credits:</b></p>
+               <p>Map created with Mapbox Studio</p>
+               <p>Data from openstreetmap</p>
+               <p>Designs from Canva and Where The Wild Things Are</p>
+               <p>Inspiration from Maurice Sendak</p>
+          </div>
+     </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/***** NAVBAR *****/
+
+.navbar {
+    background-color: #6a0000;
+    border-radius: 0;
+}
+
+/* Navbar title */
+.navbar-default .navbar-brand {
+    color: #fcf5e8;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navbar hover effects */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #d24b1e;
+    text-decoration: none;
+}
+
+/* Navbar links */
+.navbar-default .navbar-nav > li > a {
+    color: #fcf5e8;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Navbar collapsed styles */
+.navbar-toggler {
+    color: #fcf5e8;
+    border-color: #fcf5e8;
+    background-color: #6a0000;
+    border-radius: 4px;
+    border: 1px solid;
+    fill: #fcf5e8;
+    font-size: 16px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background-color: #6a0000;
+    color: #fcf5e8;
+    fill: #fcf5e8;
+    border-color: #fcf5e8;
+
+}
+
+/*** JUMBOTRON ***/
+
+.jumbotron {
+    background-image: url("../assets/Starfish.jpg"); 
+    text-align: center;
+    color: #fcf5e8;
+    padding: 3%;
+    border-radius: 0px;
+}
+
+.jumbotron h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.img-responsive{
+    width:100%;
+}
+
+/*** CARD ***/
+
+.card {
+    background-color: #fcf5e8;
+    border-color: #6a0000;
+    border-width: 1px;
+    width: 100%;
+}
+
+.card:hover {
+    border-color: #d24b1e;
+}
+
+/*** Basic Text Styles ***/
+
+#about-world {
+    max-width: 100%;
+}
+
+.resume h3 {
+    font-weight: bold;
+}
+
+
+hr {
+    border-color: #fcf5e8;
+    border-width: 2px;
+}
+
+p {
+    font-size: 20px;
+}
+
+a {
+    color: #6a0000;
+}
+
+a:hover {
+    color: #d24b1e;
+}
+
+.container{
+    padding:25px 0;
+}
+
+body {
+
+    font-family: 'Century Schoolbook', serif;
+    background-color: #fcf5e8;
+    color: #242424;
+}
